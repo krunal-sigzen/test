@@ -1,7 +1,9 @@
 name: Run Shell Scripts Based on PR Label
 
 on:
-  push:
+  pull_request:
+    types: 
+      - closed
     branches:
       - main
 
