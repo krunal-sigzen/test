@@ -26,7 +26,7 @@ jobs:
         shell: bash
         run: |
           labels=$(echo '${{ toJson(github.event.pull_request.labels.*.name) }}' | jq -r '.[]')
-          echo $labels >> $GITHUB_OUTPUT
+          echo "Labels: $labels"
           
           if [[ "$labels" == *"migrate_restart"* ]]; then
             echo "script-file=migrate_and_restart.sh" >> $GITHUB_OUTPUT
