@@ -35,4 +35,4 @@ jobs:
             echo "script-file=restart.sh" >> $GITHUB_OUTPUT
           else
             echo "script-file=migrate_and_restart.sh" >> $GITHUB_OUTPUT
-            exit 1
+          fi
