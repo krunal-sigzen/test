@@ -28,11 +28,11 @@ jobs:
           labels=$(echo '${{ toJson(github.event.pull_request.labels.*.name) }}' | jq -r '.[]')
           echo $labels
           if [[ "$labels" == *"migrate_restart"* ]]; then
-            echo "migrate_and_restart" >> $GITHUB_OUTPUT
+            echo "script-file=migrate_and_restart.sh" >> $GITHUB_OUTPUT
           elif [[ "$labels" == *"migrate"* ]]; then
-            echo "migrate" >> $GITHUB_OUTPUT
+            echo "script-file=migrate.sh" >> $GITHUB_OUTPUT
           elif [[ "$labels" == *"restart"* ]]; then
-            echo "restart." >> $GITHUB_OUTPUT
+            echo "script-file=restart.sh" >> $GITHUB_OUTPUT
           else
-            echo "migrate_and_restart" >> $GITHUB_OUTPUT
+            echo "script-file=migrate_and_restart.sh" >> $GITHUB_OUTPUT
             exit 1
