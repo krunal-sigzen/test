@@ -25,7 +25,7 @@ jobs:
         id: script
         shell: bash
         run: |
-          labels=$(echo "${{ github.event.pull_request.labels[*].name }}" | tr '[:upper:]' '[:lower:]')
+          labels=$(echo "${{ github.event.pull_request.labels[*].name }}" |)
 
           if [[ "$labels" == *"migrate_restart"* ]]; then
             echo "migrate_and_restart" >> $GITHUB_OUTPUT
