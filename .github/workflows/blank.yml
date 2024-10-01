@@ -3,7 +3,7 @@ name: Run Shell Scripts Based on PR Label
 on:
   push:
     branches:
-      - main 
+      - main
 
 jobs:
   checkout:
@@ -20,19 +20,19 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
-          
-      - name: Determine script to run 
+
+      - name: Determine script to run
         id: script
         shell: bash
         run: |
-          labels=$(echo "${{ github.event.pull_request.labels[*].name }}")
+          labels=$(echo "${{ github.event.pull_request.labels[*].name }}" | tr '[:upper:]' '[:lower:]')
 
           if [[ "$labels" == *"migrate_restart"* ]]; then
-            echo "migrate_and_restart"
+            echo "migrate_and_restart" >> $GITHUB_OUTPUT
           elif [[ "$labels" == *"migrate"* ]]; then
-            echo "migrate" 
+            echo "migrate" >> $GITHUB_OUTPUT
           elif [[ "$labels" == *"restart"* ]]; then
-            echo "restart"
+            echo "restart." >> $GITHUB_OUTPUT
           else
-            echo "migrate_and_restart"
+            echo "migrate_and_restart" >> $GITHUB_OUTPUT
             exit 1
