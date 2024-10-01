@@ -37,9 +37,9 @@ jobs:
             echo "script-file=migrate_and_restart.sh" >> $GITHUB_OUTPUT
           fi
 
-print-script-file:
+  print-script-file:
     runs-on: ubuntu-latest
     needs: determine-script
     steps:
       - name: Echo script-file from determine-script job
-        run: echo "The script-file from the previous job is: ${{ needs.determine-script.outputs.script-file }}"
+        run: echo "The script-file from the previous job is ${{ needs.determine-script.outputs.script-file }}"
