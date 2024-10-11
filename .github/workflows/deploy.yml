@@ -66,7 +66,7 @@ jobs:
         run: |
            labels=$(echo '${{ toJson(github.event.pull_request.labels.*.name) }}' | jq -r '.[]')
            if [[ "$labels" == *"kanakpura"* ]]; then
-             echo "Pulse Droplet"
+             echo "Kanakpura Droplet"
            else 
              echo " no droplet named kanakpura found"
            fi
@@ -83,7 +83,7 @@ jobs:
         run: |
            labels=$(echo '${{ toJson(github.event.pull_request.labels.*.name) }}' | jq -r '.[]')
            if [[ "$labels" == *"spacefactor"* ]]; then
-             echo "Pulse Droplet"
+             echo "TheSpaceFactor Droplet"
            else 
              echo " no droplet named SpaceFactor found"
            fi
