@@ -53,6 +53,7 @@ jobs:
              echo "Pulse Droplet"
            else 
              echo " no droplet named pulse found"
+           fi
 
   KANAKPURA_DROPLET:
       runs-on: ubuntu-latest
